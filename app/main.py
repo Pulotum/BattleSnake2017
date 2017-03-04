@@ -3,6 +3,20 @@ import os
 import random
 import math
 
+
+def getTaunt():
+	taunts = [	'This is a test taunt. If you see this please contact your internet provider.',
+				'My data structure is better than your data structure',
+				'My dad works at nintendo',
+				'I AM A BABY',
+				'I love to eat food, for I am a baby',
+				'I Think, Therefore I Am Baby',
+				'BRING ME MY BROWN PANTS',
+				'Did you know that I am indeed a Baby?']
+				
+	return random.choice(taunts)
+
+
 def isDangerSquare(data, next):
 	dangers = []
 	
@@ -38,14 +52,7 @@ def isDangerSquare(data, next):
 	else:
 		print "--Square is good"
 		return False
-
-def getTaunt():
-	taunts = [	'This is a taunt!',
-				'Woot taunt',
-				'My data structure is better than your data structure',
-				'My dad works at nintendo']
-				
-	return random.choice(taunts)
+		
 
 @bottle.route('/static/<path:path>')
 def static(path):
