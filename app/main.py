@@ -83,7 +83,7 @@ def isDangerSquare(data, next):
 		print "danger -", dangers
 	
 	if(next in dangers):
-		for snuk in length:
+		for snuk in lengths:
 			if (snuk[1] >= myLength):
 				print "--Square taken"
 				return True	
