@@ -90,6 +90,7 @@ def isDangerSquare(data, next):
 			else:
 				print "--take but smaller"
 				return False;
+		return True
 	else:
 		if((next[0] < 0) or (next[0] >= data["width"])):
 			print "Wall on x plane"
