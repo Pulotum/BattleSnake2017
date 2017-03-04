@@ -99,23 +99,18 @@ def move():
 	print "me -", meX, meY
 	print "closestCord -", closestCord
 	
-	lockLeft = False;
-	lockRight = False;
-	lockUp = False;
-	lockDown = False;
-	
 	isGood = True
 	while (isGood == True):
-		if((closestCord[0] < meX) and (lockLeft == False)):
+		if((closestCord[0] < meX)):
 			movement = 'left'
 			wantedSquare = [meX - 1, meY]
-		elif((closestCord[0] > meX) and (lockRight == False)):
+		elif((closestCord[0] > meX)):
 			movement = 'right'
 			wantedSquare = [meX + 1, meY]
-		elif((closestCord[1] > meY) and (lockDown == False)):
+		elif((closestCord[1] > meY))):
 			movement = 'down'
 			wantedSquare = [meX, meY + 1]
-		elif((closestCord[1] < meY) and (lockUp == False)):
+		elif((closestCord[1] < meY)):
 			movement = 'up'
 			wantedSquare = [meX, meY - 1]
 	
@@ -126,14 +121,55 @@ def move():
 		print "isGood -", isGood
 		
 		if(isGood == False):
+			#----
 			if(movement == 'right'):
-				lockRight = True
+				if(isDangerSquare(data, [meX, meY - 1]):
+					if(isDangerSquare(data, [meX, meY + 1]):
+						if(isDangerSquare(data, [meX - 1, meY]):
+							movement = 'right'
+						else:
+							movement = 'left'
+					else:
+						movement = 'down'
+				else:
+					movement = 'up'
+			#----
 			elif(movement == 'left'):
-				lockLeft = True
+				if(isDangerSquare(data, [meX, meY - 1]):
+					if(isDangerSquare(data, [meX, meY + 1]):
+						if(isDangerSquare(data, [meX + 1, meY]):
+							movement = 'left'
+						else:
+							movement = 'right'
+					else:
+						movement = 'down'
+				else:
+					movement = 'up'
+			#---
 			elif(movement == 'down'):
-				lockDown = True
+				if(isDangerSquare(data, [meX, meY - 1]):
+					if(isDangerSquare(data, [meX - 1, meY]):
+						if(isDangerSquare(data, [meX + 1, meY]):
+							movement = 'down'
+						else:
+							movement = 'right'
+					else:
+						movement = 'left'
+				else:
+					movement = 'up'
+			#---
 			elif(movement == 'up'):
-				lockUp = True
+				if(isDangerSquare(data, [meX, meY + 1]):
+					if(isDangerSquare(data, [meX - 1, meY]):
+						if(isDangerSquare(data, [meX + 1, meY]):
+							movement = 'up'
+						else:
+							movement = 'right'
+					else:
+						movement = 'left'
+				else:
+					movement = 'down'
+			#---
 		
 		print "Next Check -------"
 		
