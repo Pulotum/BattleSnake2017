@@ -50,12 +50,12 @@ def isSnakeClose(data):
 	
 def isDangerSquare(data, next):
 	dangers = []
-	lenghts = []
+	lengths = []
 	
 	snakes = data["snakes"]
 	
 	for snake in snakes:
-		lengths.append(snake["coords"][0], len(snake["coords"])
+		lengths.append(snake["coords"][0], len(snake["coords"]))
 		
 	print lengths	
 	
