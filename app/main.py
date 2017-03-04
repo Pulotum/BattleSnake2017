@@ -35,8 +35,8 @@ def isSnakeClose(data):
 		y = meY - 2
 		while (y < meY + 2):
 			possible.append([x,y])
-			y++
-		x++
+			y = y + 1
+		x = x + 1
 		
 	print possible	
 	
