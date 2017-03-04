@@ -47,7 +47,10 @@ def move():
 		if(snek["id"] == uid):
 			me = snek
 		
-	print me
+	meX = me["coords"][0][0]
+	meY = me["coords"][0][1]
+	
+	print (meX, meY)
 	
 	closestCord = []
 	closestDistX = 100

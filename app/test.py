@@ -1,3 +1,3 @@
 info = [1,0]
 
-print (info)
+print info[0], info[1]
