@@ -3,6 +3,8 @@ import os
 import random
 import math
 
+global closeFood = [0,0]
+
 def getTaunt():
 	taunts = [	'This is a taunt!',
 				'Woot taunt']
@@ -50,32 +52,43 @@ def move():
 	meX = me["coords"][0][0]
 	meY = me["coords"][0][1]
 	
-	closestCord = []
-	closestDistX = 100
-	closestDistY = 100
-
-	for item in data["food"]:
-		currentX = abs(meX - item[0])
-		currentY = abs(meY - item[1])
+	if(closeFood !in data["food"]):
+		closeFood = [0,0]
+	
+	if((closeFood[0] == 0) and (closeFood[1] == 0)):
+	
+		closestCord = []
+		closestDistX = 100
+		closestDistY = 100
 		
-		if((currentX < closestDistX) and (currentY < closestDistY)):
-			closestDistX = currentX
-			closestDistY = currentY
-			closestCord = item
-	
+		for item in data["food"]:
+			currentX = abs(meX - item[0])
+			currentY = abs(meY - item[1])
+			
+			if((currentX < closestDistX) and (currentY < closestDistY)):
+				closestDistX = currentX
+				closestDistY = currentY
+				closestCord = item
+		
+		closeFood = closestCord
+		
 	print(meX, meY)
-	print(closestCord)
+	print(closeFood)
 	
-	if(closestCord[0] > meX):
+	if(closeFood[0] > meX):
 		nextMove = 'left'
-	elif(closestCord[0] < meX):
+		print ("- left")
+	elif(closeFood[0] < meX):
 		nextMove = 'right'
-	elif(closestCord[1] > meY):
+		print ("- right")
+	elif(closeFood[1] > meY):
 		nextMove = 'down'
+		print ("- down")
 	elif(closestCord[1] < meY):
 		nextMove = 'up'
-	else:
-		nextMove = random.choice(['up', 'down', 'left', 'right'])
+		print ("- up")
+		
+	
 		
 	
 	# TODO: Do things with data	
