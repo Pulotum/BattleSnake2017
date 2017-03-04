@@ -54,7 +54,7 @@ def move():
 	closestDistX = 100
 	closestDistY = 100
 
-	for item in food:
+	for item in data["food"]:
 		currentX = abs(meX - item[0])
 		currentY = abs(meY - item[1])
 		
