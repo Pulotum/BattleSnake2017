@@ -113,38 +113,15 @@ def isDangerSquare(data, next):
 		print "danger -", dangers
 	
 	if(next in dangers):
+		'''
 		for snuk in lengths:
 			if (snuk[1] >= myLength):
 				print "--Square taken"
 				return True	
 			else:
 				print "--take but smaller"
+		'''		
 				
-				#--check next bunch
-				closestCord = getClosestFood(data)
-				
-				if((closestCord[0] < next[0])):
-					movement = 'left'
-					wantedSquare = [next[0] - 1, next[1]]
-				elif((closestCord[0] > next[0])):
-					movement = 'right'
-					wantedSquare = [next[0] + 1, next[1]]
-				elif((closestCord[1] > next[1])):
-					movement = 'down'
-					wantedSquare = [next[0], next[1] + 1]
-				elif((closestCord[1] < next[1])):
-					movement = 'up'
-					wantedSquare = [next[0], next[1] - 1]
-
-				print "wanted movement -", movement
-				
-				isTaken = isDangerSquare(data, wantedSquare)
-				if(isTaken):
-					return True
-				else:
-					return False
-				
-				return False;
 		return True
 	else:
 		if((next[0] < 0) or (next[0] >= data["width"])):
@@ -155,7 +132,30 @@ def isDangerSquare(data, next):
 			return True
 					
 		print "--Square is good"
-		return False
+		
+		#--check next bunch
+		closestCord = getClosestFood(data)
+		
+		if((closestCord[0] < next[0])):
+			movement = 'left'
+			wantedSquare = [next[0] - 1, next[1]]
+		elif((closestCord[0] > next[0])):
+			movement = 'right'
+			wantedSquare = [next[0] + 1, next[1]]
+		elif((closestCord[1] > next[1])):
+			movement = 'down'
+			wantedSquare = [next[0], next[1] + 1]
+		elif((closestCord[1] < next[1])):
+			movement = 'up'
+			wantedSquare = [next[0], next[1] - 1]
+
+		print "wanted movement -", movement
+		
+		isTaken = isDangerSquare(data, wantedSquare)
+		if(isTaken):
+			return True
+		else:
+			return False
 		
 
 @bottle.route('/static/<path:path>')
