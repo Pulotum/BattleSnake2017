@@ -86,20 +86,38 @@ def move():
 	print(meX, meY)
 	print(closestCord)
 	
-	if(closestCord[0] < meX):
-		nextMove = 'left'
-		print ("- left")
-	elif(closestCord[0] > meX):
-		nextMove = 'right'
-		print ("- right")
-	elif(closestCord[1] > meY):
-		nextMove = 'down'
-		print ("- down")
-	elif(closestCord[1] < meY):
-		nextMove = 'up'
-		print ("- up")
+	isGood = False
+	while (isGood == False):
+		if((closestCord[0] < meX) and (lockRight == False)):
+			movement = 'right'
+			wantedSquare = [meX + 1, meY]
+		elif((closestCord[0] > meX) and (lockLeft == False)):
+			movement = 'left'
+			wantedSquare = [meX - 1, meY]
+		elif((closestCord[1] > meY) and (lockDown == False)):
+			movement = 'down'
+			wantedSquare = [meX, meY + 1]
+		elif((closestCord[1] < meY) and (lockUp == False)):
+			movement = 'up'
+			wantedSquare = [meX, meY - 1]
+	
+		print "wanted movement -", movement
 		
-	isDangerSquare(data, closestCord)
+		isGood = isDangerSquare(data, wantedSquare)
+		
+		print "isGood -", isGood
+		
+		if(isGood == False):
+			if(movement == 'right'):
+				lockRight = True
+			elif(movement == 'left'):
+				lockLeft = True
+			elif(movement == 'down'):
+				lockDown = True
+			elif(movement == 'up'):
+				lockUp = True
+		
+		print "Next Check -------"
 		
 	
 	# TODO: Do things with data	
