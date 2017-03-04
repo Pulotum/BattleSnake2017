@@ -16,9 +16,9 @@ def isDangerSquare(data, next):
         if(snake["id"] != data["you"]):
             head = snake["coords"][0]
             #right
-            dangers.append([head[0] + 1, head[1])
+            dangers.append([head[0] + 1, head[1]])
             #left
-            dangers.append([head[0] - 1, head[1])
+            dangers.append([head[0] - 1, head[1]])
             #up
             dangers.append([head[0], head[1] - 1])
             #down
