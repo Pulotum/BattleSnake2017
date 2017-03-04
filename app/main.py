@@ -3,7 +3,14 @@ import os
 import random
 import math
 
-global closeFood
+def isDangerSquare(data, next):
+	dangers = []
+	
+	snakes = data["snakes"]
+	for cord in snakes["coords"]:
+		danger.append(cord)
+		
+	print dangers
 
 def getTaunt():
 	taunts = [	'This is a taunt!',
@@ -18,7 +25,6 @@ def static(path):
 
 @bottle.post('/start')
 def start():
-	global closeFood
 
 	data = bottle.request.json
 	game_id = data['game_id']
@@ -26,8 +32,6 @@ def start():
 	board_height = data['height']
 
 	head_url = 'https://thumb1.shutterstock.com/display_pic_with_logo/88356/107460737/stock-photo-beautiful-expressive-adorable-happy-cute-laughing-smiling-baby-infant-face-showing-tongue-isolated-107460737.jpg'
-
-	closeFood = [0,0]
 	
 	# TODO: Do things with data
 
@@ -58,40 +62,34 @@ def move():
 	meX = me["coords"][0][0]
 	meY = me["coords"][0][1]
 	
-	if(closeFood not in data["food"]):
-		closeFood = [0,0]
-		
+	closestCord = []
+	closestDistX = 100
+	closestDistY = 100
 	
-	if((closeFood[0] == 0) and (closeFood[1] == 0)):
-	
-		closestCord = []
-		closestDistX = 100
-		closestDistY = 100
+	for item in data["food"]:
+		currentX = abs(meX - item[0])
+		currentY = abs(meY - item[1])
 		
-		for item in data["food"]:
-			currentX = abs(meX - item[0])
-			currentY = abs(meY - item[1])
-			
-			if((currentX < closestDistX) and (currentY < closestDistY)):
-				closestDistX = currentX
-				closestDistY = currentY
-				closestCord = item
-		
-		closeFood = closestCord
+		if((currentX < closestDistX) and (currentY < closestDistY)):
+			closestDistX = currentX
+			closestDistY = currentY
+			closestCord = item
 		
 	print(meX, meY)
-	print(closeFood)
+	print(closestCord)
 	
-	if(closeFood[0] > meX):
+	isDangerSquare(data, closestCord)
+	
+	if(closestCord[0] > meX):
 		nextMove = 'left'
 		print ("- left")
-	elif(closeFood[0] < meX):
+	elif(closestCord[0] < meX):
 		nextMove = 'right'
 		print ("- right")
-	elif(closeFood[1] > meY):
+	elif(closestCord[1] > meY):
 		nextMove = 'down'
 		print ("- down")
-	elif(closeFood[1] < meY):
+	elif(closestCord[1] < meY):
 		nextMove = 'up'
 		print ("- up")
 		
