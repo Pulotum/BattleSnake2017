@@ -27,7 +27,7 @@ def isDangerSquare(data, next):
 	
 	if( next in dangers):
 		print "square taken"
-		return true;
+		return True
 
 def getTaunt():
 	taunts = [	'This is a taunt!',
