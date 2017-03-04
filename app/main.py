@@ -40,6 +40,12 @@ def isSnakeClose(data):
 		
 	print "possible -", possible	
 	
+	for snek in snakes:
+		if(snek["id"] != uid):
+			if (snek["coords"][0] in possible):
+				print "----Snake is in our range"
+	
+	
 def isDangerSquare(data, next):
 	dangers = []
 	
