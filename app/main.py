@@ -78,7 +78,7 @@ def getClosestFood(data):
 	return closestCord
 
 	
-def isDangerSquare(data, next):
+def isDangerSquare(data, next, check):
 	uid = data["you"]
 	dangers = []
 	lengths = []
@@ -133,27 +133,24 @@ def isDangerSquare(data, next):
 					
 		print "--Square is good"
 		
-		#--check next bunch
-		closestCord = getClosestFood(data)
-		
-		if((closestCord[0] < next[0])):
-			movement = 'left'
-			wantedSquare = [next[0] - 1, next[1]]
-		elif((closestCord[0] > next[0])):
-			movement = 'right'
-			wantedSquare = [next[0] + 1, next[1]]
-		elif((closestCord[1] > next[1])):
-			movement = 'down'
-			wantedSquare = [next[0], next[1] + 1]
-		elif((closestCord[1] < next[1])):
-			movement = 'up'
-			wantedSquare = [next[0], next[1] - 1]
+		if(check):
+			#--check next bunch
+			closestCord = getClosestFood(data)
+			
+			if((closestCord[0] < next[0])):
+				wantedSquare = [next[0] - 1, next[1]]
+			elif((closestCord[0] > next[0])):
+				wantedSquare = [next[0] + 1, next[1]]
+			elif((closestCord[1] > next[1])):
+				wantedSquare = [next[0], next[1] + 1]
+			elif((closestCord[1] < next[1])):
+				wantedSquare = [next[0], next[1] - 1]
 
-		print "wanted movement -", movement
-		
-		isTaken = isDangerSquare(data, wantedSquare)
-		if(isTaken):
-			return True
+			isTaken = isDangerSquare(data, wantedSquare, False)
+			if(isTaken):
+				return True
+			else:
+				return False
 		else:
 			return False
 		
@@ -220,14 +217,14 @@ def move():
 
 	print "wanted movement -", movement
 	
-	isGood = isDangerSquare(data, wantedSquare)
+	isGood = isDangerSquare(data, wantedSquare, True)
 	
 	if(isGood):
 		#----
 		if(movement == 'right'):
-			if(isDangerSquare(data, [meX, meY - 1])):
-				if(isDangerSquare(data, [meX, meY + 1])):
-					if(isDangerSquare(data, [meX - 1, meY])):
+			if(isDangerSquare(data, [meX, meY - 1]), True):
+				if(isDangerSquare(data, [meX, meY + 1]), True):
+					if(isDangerSquare(data, [meX - 1, meY]), True):
 						movement = 'right'
 					else:
 						movement = 'left'
@@ -237,9 +234,9 @@ def move():
 				movement = 'up'
 		#----
 		elif(movement == 'left'):
-			if(isDangerSquare(data, [meX, meY - 1])):
-				if(isDangerSquare(data, [meX, meY + 1])):
-					if(isDangerSquare(data, [meX + 1, meY])):
+			if(isDangerSquare(data, [meX, meY - 1])]), True):
+				if(isDangerSquare(data, [meX, meY + 1])]), True):
+					if(isDangerSquare(data, [meX + 1, meY])]), True):
 						movement = 'left'
 					else:
 						movement = 'right'
@@ -249,9 +246,9 @@ def move():
 				movement = 'up'
 		#---
 		elif(movement == 'down'):
-			if(isDangerSquare(data, [meX, meY - 1])):
-				if(isDangerSquare(data, [meX - 1, meY])):
-					if(isDangerSquare(data, [meX + 1, meY])):
+			if(isDangerSquare(data, [meX, meY - 1])]), True):
+				if(isDangerSquare(data, [meX - 1, meY])]), True):
+					if(isDangerSquare(data, [meX + 1, meY])]), True):
 						movement = 'down'
 					else:
 						movement = 'right'
@@ -261,9 +258,9 @@ def move():
 				movement = 'up'
 		#---
 		elif(movement == 'up'):
-			if(isDangerSquare(data, [meX, meY + 1])):
-				if(isDangerSquare(data, [meX - 1, meY])):
-					if(isDangerSquare(data, [meX + 1, meY])):
+			if(isDangerSquare(data, [meX, meY + 1])]), True):
+				if(isDangerSquare(data, [meX - 1, meY])]), True):
+					if(isDangerSquare(data, [meX + 1, meY])]), True):
 						movement = 'up'
 					else:
 						movement = 'right'
