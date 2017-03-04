@@ -56,10 +56,10 @@ def isDangerSquare(data, next):
 	snakes = data["snakes"]
 	
 	for snake in snakes:
-		if(snek["id"] != uid):
+		if(snake["id"] != uid):
 			nuw = [snake["coords"][0], len(snake["coords"])]
 			lengths.append(nuw)
-		if(snek["id"] == uid):
+		if(snake["id"] == uid):
 			myLength = len(snake["coords"])
 		
 	print lengths	
