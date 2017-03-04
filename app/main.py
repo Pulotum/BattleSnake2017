@@ -84,10 +84,10 @@ def move():
 	
 	isDangerSquare(data, closestCord)
 	
-	if(closestCord[0] > meX):
+	if(closestCord[0] < meX):
 		nextMove = 'left'
 		print ("- left")
-	elif(closestCord[0] < meX):
+	elif(closestCord[0] > meX):
 		nextMove = 'right'
 		print ("- right")
 	elif(closestCord[1] > meY):
