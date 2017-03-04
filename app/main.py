@@ -40,8 +40,11 @@ def start():
 def move():
 	data = bottle.request.json
 	
-	meX = data['snakes']['Baby Face']['coords'][0]
-	meY = data['snakes']['Baby Face']['coords'][1]
+	print data[0]
+	print data['you']
+	
+	#meX = data['snakes']['Baby Face']['coords'][0]
+	#meY = data['snakes']['Baby Face']['coords'][1]
 	
 	closestCord = []
 	closestDistX = 100
@@ -57,7 +60,7 @@ def move():
 			closestDistY = currentY
 			closestCord = item
 	"""
-	print(closestCord);
+	#print(closestCord);
 		
 		
 	
