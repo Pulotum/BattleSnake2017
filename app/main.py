@@ -76,6 +76,7 @@ def getClosestFood(data):
 	print "closestCord -", closestCord
 	
 	return closestCord
+
 	
 def isDangerSquare(data, next):
 	uid = data["you"]
@@ -189,6 +190,16 @@ def start():
 def move():
 	
 	data = bottle.request.json
+	
+	uid = data["you"]
+	snakes = data["snakes"]
+	
+	for snek in snakes:
+		if(snek["id"] == uid):
+			me = snek
+		
+	meX = me["coords"][0][0]
+	meY = me["coords"][0][1]
 	
 	closestCord = getClosestFood(data)
 	
