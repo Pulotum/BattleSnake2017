@@ -84,7 +84,7 @@ def move():
 	elif(closeFood[1] > meY):
 		nextMove = 'down'
 		print ("- down")
-	elif(closestCord[1] < meY):
+	elif(closeFood[1] < meY):
 		nextMove = 'up'
 		print ("- up")
 		
