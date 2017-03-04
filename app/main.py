@@ -17,6 +17,29 @@ def getTaunt():
 	return random.choice(taunts)
 
 
+def isSnakeClose(data):
+	uid = data["you"]
+	snakes = data["snakes"]
+	
+	for snek in snakes:
+		if(snek["id"] == uid):
+			me = snek
+		
+	meX = me["coords"][0][0]
+	meY = me["coords"][0][1]
+	
+	possible = []
+	
+	x = meX - 2
+	while (x < meX + 2):
+		y = meY - 2
+		while (y < meY + 2):
+			possible.append([x,y])
+			y++
+		x++
+		
+	print possible	
+	
 def isDangerSquare(data, next):
 	dangers = []
 	
@@ -113,6 +136,8 @@ def move():
 		
 	print "me -", meX, meY
 	print "closestCord -", closestCord
+	
+	isSnakeClose(data)
 	
 	if((closestCord[0] < meX)):
 		movement = 'left'
