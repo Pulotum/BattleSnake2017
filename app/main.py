@@ -49,6 +49,7 @@ def isSnakeClose(data):
 	
 	
 def isDangerSquare(data, next):
+	uid = data["you"]
 	dangers = []
 	lengths = []
 	myLength = 0;
