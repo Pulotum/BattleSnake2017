@@ -9,15 +9,24 @@ def isDangerSquare(data, next):
 	snakes = data["snakes"]
 	
 	for snake in snakes:
-	
 		curds = snake["coords"]
 		for cord in curds:
 			dangers.append(cord)
-		
+        #area around enemy snake head
+        if snake["id"] != data["you"]
+            head = snake["coords"][0]
+            #right
+            dangers.append([head[0] + 1, head[1])
+            #left
+            dangers.append([head[0] - 1, head[1])
+            #up
+            dangers.append([head[0], head[1] - 1])
+            #down
+		    dangers.append([head[0], head[1] + 1])
 	print dangers
 	
 	if( next in dangers):
-		print "suqare taken"
+		print "square taken"
 		return true;
 
 def getTaunt():
