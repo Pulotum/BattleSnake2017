@@ -102,12 +102,12 @@ def move():
 	
 	isGood = False
 	while (isGood == False):
-		if((closestCord[0] < meX) and (lockRight == False)):
-			movement = 'right'
-			wantedSquare = [meX + 1, meY]
-		elif((closestCord[0] > meX) and (lockLeft == False)):
+		if((closestCord[0] < meX) and (lockLeft == False)):
 			movement = 'left'
 			wantedSquare = [meX - 1, meY]
+		elif((closestCord[0] > meX) and (lockRight == False)):
+			movement = 'right'
+			wantedSquare = [meX + 1, meY]
 		elif((closestCord[1] > meY) and (lockDown == False)):
 			movement = 'down'
 			wantedSquare = [meX, meY + 1]
