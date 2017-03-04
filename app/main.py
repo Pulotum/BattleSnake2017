@@ -80,16 +80,16 @@ def move():
 	meY = me["coords"][0][1]
 	
 	closestCord = []
-	closestDistX = 100
-	closestDistY = 100
+	closestDist = 100
 	
 	for item in data["food"]:
 		currentX = abs(meX - item[0])
 		currentY = abs(meY - item[1])
 		
-		if((currentX < closestDistX) and (currentY < closestDistY)):
-			closestDistX = currentX
-			closestDistY = currentY
+		currentDist = currentX + currentY
+		
+		if(currentDist < closestDist):
+			closestDist = currentDist
 			closestCord = item
 		
 	print "me -", meX, meY
