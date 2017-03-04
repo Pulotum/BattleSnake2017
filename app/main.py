@@ -95,6 +95,11 @@ def move():
 	print "me -", meX, meY
 	print "closestCord -", closestCord
 	
+	lockLeft = False;
+	lockRight = False;
+	lockUp = False;
+	lockDown = False;
+	
 	isGood = False
 	while (isGood == False):
 		if((closestCord[0] < meX) and (lockRight == False)):
