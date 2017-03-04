@@ -26,9 +26,10 @@ def isDangerSquare(data, next):
 	print dangers
 	
 	if( next in dangers):
-		print "square taken"
+		print "--Square taken"
 		return True
 	else:
+		print "--Square is good"
 		return False
 
 def getTaunt():
@@ -116,9 +117,7 @@ def move():
 	
 	isGood = isDangerSquare(data, wantedSquare)
 	
-	print "isGood -", isGood
-	
-	if(isGood == False):
+	if(isGood):
 		#----
 		if(movement == 'right'):
 			if(isDangerSquare(data, [meX, meY - 1])):
