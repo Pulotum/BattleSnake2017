@@ -44,7 +44,7 @@ def move():
 	snakes = data["snakes"]
 	
 	for snek in snakes:
-		if(snek["id"] = uid):
+		if(snek["id"] == uid):
 			me = snek
 		
 	print me
