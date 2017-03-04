@@ -40,8 +40,8 @@ def start():
 def move():
 	data = bottle.request.json
 	
-	print data[0]
-	print data['you']
+	#print data[0]
+	print data["you"]
 	
 	#meX = data['snakes']['Baby Face']['coords'][0]
 	#meY = data['snakes']['Baby Face']['coords'][1]
