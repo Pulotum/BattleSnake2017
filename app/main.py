@@ -7,8 +7,11 @@ def isDangerSquare(data, next):
 	dangers = []
 	
 	snakes = data["snakes"]
-	for cord in snakes["coords"]:
-		danger.append(cord)
+	curds = snakes["coords"]
+	
+	i = 0
+	while(i < len(curds):
+		danger.append(curds[i])
 		
 	print dangers
 
