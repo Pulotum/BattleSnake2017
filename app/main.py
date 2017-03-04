@@ -1,7 +1,13 @@
 import bottle
 import os
 import random
+import math
 
+def getTaunt():
+	taunts = [	'This is a taunt!',
+				'Woot taunt']
+				
+	return random.choice(taunts)
 
 @bottle.route('/static/<path:path>')
 def static(path):
@@ -28,17 +34,48 @@ def start():
         'tail_type': 'pixel'
     }
 
+	
 
 @bottle.post('/move')
 def move():
     data = bottle.request.json
-
+	
+	meX = snakes['Baby Face']['coords'][0]
+	meY = snakes['Baby Face']['coords'][1]
+	
+	closestCord = []
+	closestDistX = 100
+	closestDistY = 100
+	
+	for item in food:
+		currentX = abs(meX - item[0])
+		currentY = abs(meY - item[1])
+		
+		if((currentX < closestDistX) && (currentY < closestDistY)):
+			closestDistX = currentX
+			closestDistY = currentY
+			closestCord = item
+	
+	print(closestCord);
+		
+		
+	
     # TODO: Do things with data
     directions = ['up', 'down', 'left', 'right']
 
     return {
         'move': random.choice(directions),
-        'taunt': 'battlesnake-python!'
+        'taunt': getTaunt()
+    }
+	
+@bottle.post('/end')
+def end():
+    data = bottle.request.json
+
+    # TODO: Do things with data
+
+    return {
+        'taunt': 'BABY FACE!'
     }
 
 
