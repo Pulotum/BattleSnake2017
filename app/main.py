@@ -134,6 +134,7 @@ def isDangerSquare(data, next, check):
 		print "--Square is good"
 		
 		if(check):
+			'''
 			#--check next bunch
 			closestCord = getClosestFood(data)
 			
@@ -151,6 +152,8 @@ def isDangerSquare(data, next, check):
 				return True
 			else:
 				return False
+			'''
+			return False
 		else:
 			return False
 		
