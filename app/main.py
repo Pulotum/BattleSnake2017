@@ -63,18 +63,18 @@ def isDangerSquare(data, next):
 		curds = snake["coords"]
 		for cord in curds:
 			dangers.append(cord)
-        #area around enemy snake head
-        if(snake["id"] != data["you"]):
-            head = snake["coords"][0]
-            #right
-            dangers.append([head[0] + 1, head[1]])
-            #left
-            dangers.append([head[0] - 1, head[1]])
-            #up
-            dangers.append([head[0], head[1] - 1])
-            #down
-            dangers.append([head[0], head[1] + 1])
-        print "danger -", dangers
+		#area around enemy snake head
+		if(snake["id"] != data["you"]):
+			head = snake["coords"][0]
+			#right
+			dangers.append([head[0] + 1, head[1]])
+			#left
+			dangers.append([head[0] - 1, head[1]])
+			#up
+			dangers.append([head[0], head[1] - 1])
+			#down
+			dangers.append([head[0], head[1] + 1])
+		print "danger -", dangers
 	
 	if( next in dangers):
 		print "--Square taken"
@@ -82,12 +82,12 @@ def isDangerSquare(data, next):
 	else:
 		
 		if(snake["id"] == data["you"]):
-            if((next[0] < 0) or (next[0] >= data["width"])):
-                print "Wall on x plane"
-                return True
-            if((next[1] < 0) or (next[1] >= data["height"])):
-                print "Wall on y plane"
-                return True
+			if((next[0] < 0) or (next[0] >= data["width"])):
+				print "Wall on x plane"
+				return True
+			if((next[1] < 0) or (next[1] >= data["height"])):
+				print "Wall on y plane"
+				return True
 					
 		print "--Square is good"
 		return False
