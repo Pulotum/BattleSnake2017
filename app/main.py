@@ -55,7 +55,8 @@ def isDangerSquare(data, next):
 	snakes = data["snakes"]
 	
 	for snake in snakes:
-		lengths.append(snake["coords"][0], len(snake["coords"]))
+		nuw = [snake["coords"][0], len(snake["coords"])]
+		lengths.append(nuw)
 		
 	print lengths	
 	
