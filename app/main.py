@@ -64,14 +64,23 @@ def move():
 			closestCord = item
 			
 	print(closestCord);
-		
+	
+	if(closestCord[0] > meX):
+		nextMove = 'left'
+	elif(closestCord[0] < meX):
+		nextMove = 'right'
+	elif(closestCord[1] > meY):
+		nextMove = 'down'
+	elif(closestCord[1] < meY):
+		nextMove = 'up'
+	else:
+		nextMove = random.choice(['up', 'down', 'left', 'right'])
 		
 	
-	# TODO: Do things with data
-	directions = ['up', 'down', 'left', 'right']
-
+	# TODO: Do things with data	
+	
 	return {
-		'move': random.choice(directions),
+		'move': nextMove,
 		'taunt': getTaunt()
 	}
 	
