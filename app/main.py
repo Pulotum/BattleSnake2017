@@ -83,8 +83,8 @@ def move():
 			closestDistY = currentY
 			closestCord = item
 		
-	print(meX, meY)
-	print(closestCord)
+	print "me -", meX, meY)
+	print "closestCord -", closestCord
 	
 	isGood = False
 	while (isGood == False):
