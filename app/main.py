@@ -99,79 +99,77 @@ def move():
 	print "me -", meX, meY
 	print "closestCord -", closestCord
 	
-	isGood = True
-	while (isGood == True):
-		if((closestCord[0] < meX)):
-			movement = 'left'
-			wantedSquare = [meX - 1, meY]
-		elif((closestCord[0] > meX)):
-			movement = 'right'
-			wantedSquare = [meX + 1, meY]
-		elif((closestCord[1] > meY)):
-			movement = 'down'
-			wantedSquare = [meX, meY + 1]
-		elif((closestCord[1] < meY)):
-			movement = 'up'
-			wantedSquare = [meX, meY - 1]
+	if((closestCord[0] < meX)):
+		movement = 'left'
+		wantedSquare = [meX - 1, meY]
+	elif((closestCord[0] > meX)):
+		movement = 'right'
+		wantedSquare = [meX + 1, meY]
+	elif((closestCord[1] > meY)):
+		movement = 'down'
+		wantedSquare = [meX, meY + 1]
+	elif((closestCord[1] < meY)):
+		movement = 'up'
+		wantedSquare = [meX, meY - 1]
+
+	print "wanted movement -", movement
 	
-		print "wanted movement -", movement
-		
-		isGood = isDangerSquare(data, wantedSquare)
-		
-		print "isGood -", isGood
-		
-		if(isGood == False):
-			#----
-			if(movement == 'right'):
-				if(isDangerSquare(data, [meX, meY - 1])):
-					if(isDangerSquare(data, [meX, meY + 1])):
-						if(isDangerSquare(data, [meX - 1, meY])):
-							movement = 'right'
-						else:
-							movement = 'left'
-					else:
-						movement = 'down'
-				else:
-					movement = 'up'
-			#----
-			elif(movement == 'left'):
-				if(isDangerSquare(data, [meX, meY - 1])):
-					if(isDangerSquare(data, [meX, meY + 1])):
-						if(isDangerSquare(data, [meX + 1, meY])):
-							movement = 'left'
-						else:
-							movement = 'right'
-					else:
-						movement = 'down'
-				else:
-					movement = 'up'
-			#---
-			elif(movement == 'down'):
-				if(isDangerSquare(data, [meX, meY - 1])):
-					if(isDangerSquare(data, [meX - 1, meY])):
-						if(isDangerSquare(data, [meX + 1, meY])):
-							movement = 'down'
-						else:
-							movement = 'right'
-					else:
-						movement = 'left'
-				else:
-					movement = 'up'
-			#---
-			elif(movement == 'up'):
+	isGood = isDangerSquare(data, wantedSquare)
+	
+	print "isGood -", isGood
+	
+	if(isGood == False):
+		#----
+		if(movement == 'right'):
+			if(isDangerSquare(data, [meX, meY - 1])):
 				if(isDangerSquare(data, [meX, meY + 1])):
 					if(isDangerSquare(data, [meX - 1, meY])):
-						if(isDangerSquare(data, [meX + 1, meY])):
-							movement = 'up'
-						else:
-							movement = 'right'
+						movement = 'right'
 					else:
 						movement = 'left'
 				else:
 					movement = 'down'
-			#---
-		
-		print "Next Check -------"
+			else:
+				movement = 'up'
+		#----
+		elif(movement == 'left'):
+			if(isDangerSquare(data, [meX, meY - 1])):
+				if(isDangerSquare(data, [meX, meY + 1])):
+					if(isDangerSquare(data, [meX + 1, meY])):
+						movement = 'left'
+					else:
+						movement = 'right'
+				else:
+					movement = 'down'
+			else:
+				movement = 'up'
+		#---
+		elif(movement == 'down'):
+			if(isDangerSquare(data, [meX, meY - 1])):
+				if(isDangerSquare(data, [meX - 1, meY])):
+					if(isDangerSquare(data, [meX + 1, meY])):
+						movement = 'down'
+					else:
+						movement = 'right'
+				else:
+					movement = 'left'
+			else:
+				movement = 'up'
+		#---
+		elif(movement == 'up'):
+			if(isDangerSquare(data, [meX, meY + 1])):
+				if(isDangerSquare(data, [meX - 1, meY])):
+					if(isDangerSquare(data, [meX + 1, meY])):
+						movement = 'up'
+					else:
+						movement = 'right'
+				else:
+					movement = 'left'
+			else:
+				movement = 'down'
+		#---
+	
+	print "Next Check -------"
 		
 	
 	# TODO: Do things with data	
