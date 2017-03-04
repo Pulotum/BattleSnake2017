@@ -38,7 +38,7 @@ def isSnakeClose(data):
 			y = y + 1
 		x = x + 1
 		
-	print possible	
+	print "possible -", possible	
 	
 def isDangerSquare(data, next):
 	dangers = []
@@ -60,7 +60,7 @@ def isDangerSquare(data, next):
             dangers.append([head[0], head[1] - 1])
             #down
             dangers.append([head[0], head[1] + 1])
-        print dangers
+        print "danger -", dangers
         if(snake["id"] == data["you"]):
             if(next[0] < 0 or next[0] > data["width"]):
                 print "Wall on x plane"
