@@ -13,7 +13,7 @@ def isDangerSquare(data, next):
 		for cord in curds:
 			dangers.append(cord)
         #area around enemy snake head
-        if snake["id"] != data["you"]
+        if(snake["id"] != data["you"]):
             head = snake["coords"][0]
             #right
             dangers.append([head[0] + 1, head[1])
@@ -22,7 +22,7 @@ def isDangerSquare(data, next):
             #up
             dangers.append([head[0], head[1] - 1])
             #down
-		    dangers.append([head[0], head[1] + 1])
+            dangers.append([head[0], head[1] + 1])
 	print dangers
 	
 	if( next in dangers):
