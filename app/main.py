@@ -40,11 +40,14 @@ def start():
 def move():
 	data = bottle.request.json
 	
-	#print data[0]
-	print data["you"]
+	uid = data["you"]
+	snakes = data["snakes"]
 	
-	#meX = data['snakes']['Baby Face']['coords'][0]
-	#meY = data['snakes']['Baby Face']['coords'][1]
+	for snek in snakes:
+		if(snek["id"] = uid):
+			me = snek
+		
+	print me
 	
 	closestCord = []
 	closestDistX = 100
