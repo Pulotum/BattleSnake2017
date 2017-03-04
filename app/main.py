@@ -107,7 +107,7 @@ def move():
 		elif((closestCord[0] > meX)):
 			movement = 'right'
 			wantedSquare = [meX + 1, meY]
-		elif((closestCord[1] > meY))):
+		elif((closestCord[1] > meY)):
 			movement = 'down'
 			wantedSquare = [meX, meY + 1]
 		elif((closestCord[1] < meY)):
