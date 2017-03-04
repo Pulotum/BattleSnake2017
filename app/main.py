@@ -50,8 +50,14 @@ def isSnakeClose(data):
 	
 def isDangerSquare(data, next):
 	dangers = []
+	lenghts = []
 	
 	snakes = data["snakes"]
+	
+	for snake in snakes:
+		lengths.append(snake["coords"][0], len(snake["coords"])
+		
+	print lengths	
 	
 	for snake in snakes:
 		curds = snake["coords"]
@@ -69,18 +75,20 @@ def isDangerSquare(data, next):
             #down
             dangers.append([head[0], head[1] + 1])
         print "danger -", dangers
-        if(snake["id"] == data["you"]):
+	
+	if( next in dangers):
+		print "--Square taken"
+		return True
+	else:
+		
+		if(snake["id"] == data["you"]):
             if((next[0] < 0) or (next[0] >= data["width"])):
                 print "Wall on x plane"
                 return True
             if((next[1] < 0) or (next[1] >= data["height"])):
                 print "Wall on y plane"
                 return True
-	
-	if( next in dangers):
-		print "--Square taken"
-		return True
-	else:
+					
 		print "--Square is good"
 		return False
 		
