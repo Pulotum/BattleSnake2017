@@ -62,8 +62,9 @@ def move():
 			closestDistX = currentX
 			closestDistY = currentY
 			closestCord = item
-			
-	print(closestCord);
+	
+	print(meX, meY)
+	print(closestCord)
 	
 	if(closestCord[0] > meX):
 		nextMove = 'left'
