@@ -58,7 +58,7 @@ def move():
 		currentX = abs(meX - item[0])
 		currentY = abs(meY - item[1])
 		
-		if((currentX < closestDistX) && (currentY < closestDistY)):
+		if((currentX < closestDistX) and (currentY < closestDistY)):
 			closestDistX = currentX
 			closestDistY = currentY
 			closestCord = item
