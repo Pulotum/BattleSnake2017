@@ -3,7 +3,7 @@ import os
 import random
 import math
 
-global closeFood = [0,0]
+global closeFood
 
 def getTaunt():
 	taunts = [	'This is a taunt!',
@@ -18,6 +18,8 @@ def static(path):
 
 @bottle.post('/start')
 def start():
+	global closeFood
+
 	data = bottle.request.json
 	game_id = data['game_id']
 	board_width = data['width']
@@ -25,6 +27,8 @@ def start():
 
 	head_url = 'https://thumb1.shutterstock.com/display_pic_with_logo/88356/107460737/stock-photo-beautiful-expressive-adorable-happy-cute-laughing-smiling-baby-infant-face-showing-tongue-isolated-107460737.jpg'
 
+	closeFood = [0,0]
+	
 	# TODO: Do things with data
 
 	return {
@@ -40,6 +44,8 @@ def start():
 
 @bottle.post('/move')
 def move():
+	global closeFood
+	
 	data = bottle.request.json
 	
 	uid = data["you"]
