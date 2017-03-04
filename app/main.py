@@ -29,11 +29,12 @@ def isSnakeClose(data):
 	meY = me["coords"][0][1]
 	
 	possible = []
+	range = 3
 	
-	x = meX - 2
-	while (x <= meX + 2):
-		y = meY - 2
-		while (y <= meY + 2):
+	x = meX - range
+	while (x <= meX + range):
+		y = meY - range
+		while (y <= meY + range):
 			possible.append([x,y])
 			y = y + 1
 		x = x + 1
@@ -43,7 +44,8 @@ def isSnakeClose(data):
 	for snek in snakes:
 		if(snek["id"] != uid):
 			if (snek["coords"][0] in possible):
-				print "----Snake is in our range"
+				lin = len(snek["coords"])
+				print "----Snake of length", lin, " is in our range"
 	
 	
 def isDangerSquare(data, next):
