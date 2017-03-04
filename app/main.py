@@ -48,6 +48,35 @@ def isSnakeClose(data):
 				print "----Snake of length", lin, " is in our range"
 	
 	
+def getClosestFood(data):
+	uid = data["you"]
+	snakes = data["snakes"]
+	
+	for snek in snakes:
+		if(snek["id"] == uid):
+			me = snek
+		
+	meX = me["coords"][0][0]
+	meY = me["coords"][0][1]
+	
+	closestCord = []
+	closestDist = 100
+	
+	for item in data["food"]:
+		currentX = abs(meX - item[0])
+		currentY = abs(meY - item[1])
+		
+		currentDist = currentX + currentY
+		
+		if(currentDist < closestDist):
+			closestDist = currentDist
+			closestCord = item
+		
+	print "me -", meX, meY
+	print "closestCord -", closestCord
+	
+	return closestCord
+	
 def isDangerSquare(data, next):
 	uid = data["you"]
 	dangers = []
@@ -89,6 +118,31 @@ def isDangerSquare(data, next):
 				return True	
 			else:
 				print "--take but smaller"
+				
+				#--check next bunch
+				closestCord = getClosestFood(data)
+				
+				if((closestCord[0] < next[0])):
+					movement = 'left'
+					wantedSquare = [next[0] - 1, next[1]]
+				elif((closestCord[0] > next[0])):
+					movement = 'right'
+					wantedSquare = [next[0] + 1, next[1]]
+				elif((closestCord[1] > next[1])):
+					movement = 'down'
+					wantedSquare = [next[0], next[1] + 1]
+				elif((closestCord[1] < next[1])):
+					movement = 'up'
+					wantedSquare = [next[0], next[1] - 1]
+
+				print "wanted movement -", movement
+				
+				isTaken = isDangerSquare(data, wantedSquare)
+				if(isTaken):
+					return True
+				else:
+					return False
+				
 				return False;
 		return True
 	else:
@@ -122,7 +176,7 @@ def start():
 
 	return {
 		'color': '#ff6666',
-		'taunt': '{} ({}x{})'.format(game_id, board_width, board_height),
+		'taunt': 'BABY GONNA WIN',
 		'head_url': head_url,
 		'name': 'Baby Face',
 		'head_type': 'safe',
@@ -133,35 +187,10 @@ def start():
 
 @bottle.post('/move')
 def move():
-	global closeFood
 	
 	data = bottle.request.json
 	
-	uid = data["you"]
-	snakes = data["snakes"]
-	
-	for snek in snakes:
-		if(snek["id"] == uid):
-			me = snek
-		
-	meX = me["coords"][0][0]
-	meY = me["coords"][0][1]
-	
-	closestCord = []
-	closestDist = 100
-	
-	for item in data["food"]:
-		currentX = abs(meX - item[0])
-		currentY = abs(meY - item[1])
-		
-		currentDist = currentX + currentY
-		
-		if(currentDist < closestDist):
-			closestDist = currentDist
-			closestCord = item
-		
-	print "me -", meX, meY
-	print "closestCord -", closestCord
+	closestCord = getClosestFood(data)
 	
 	isSnakeClose(data)
 	
