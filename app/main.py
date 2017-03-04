@@ -28,10 +28,14 @@ def isDangerSquare(data, next):
 	if( next in dangers):
 		print "square taken"
 		return True
+	else:
+		return False
 
 def getTaunt():
 	taunts = [	'This is a taunt!',
-				'Woot taunt']
+				'Woot taunt',
+				'My data structure is better than your data structure',
+				'My dad works at nintendo']
 				
 	return random.choice(taunts)
 
@@ -100,8 +104,8 @@ def move():
 	lockUp = False;
 	lockDown = False;
 	
-	isGood = False
-	while (isGood == False):
+	isGood = True
+	while (isGood == True):
 		if((closestCord[0] < meX) and (lockLeft == False)):
 			movement = 'left'
 			wantedSquare = [meX - 1, meY]
