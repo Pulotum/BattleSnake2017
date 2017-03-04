@@ -68,10 +68,10 @@ def isDangerSquare(data, next):
             dangers.append([head[0], head[1] + 1])
         print "danger -", dangers
         if(snake["id"] == data["you"]):
-            if(next[0] < 0 or next[0] > data["width"]):
+            if((next[0] < 0) or (next[0] > data["width"])):
                 print "Wall on x plane"
                 return True
-            if(next[1] < 0 or next[1] > data["height"]):
+            if((next[1] < 0) or (next[1] > data["height"])):
                 print "Wall on y plane"
                 return True
 	
