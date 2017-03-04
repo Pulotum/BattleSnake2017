@@ -58,7 +58,9 @@ def move():
 	meX = me["coords"][0][0]
 	meY = me["coords"][0][1]
 	
-	if(closeFood !in data["food"]):
+	if(closeFood in data["food"]):
+		#good i guess
+	else:
 		closeFood = [0,0]
 	
 	if((closeFood[0] == 0) and (closeFood[1] == 0)):
