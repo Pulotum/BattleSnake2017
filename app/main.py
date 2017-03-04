@@ -15,6 +15,10 @@ def isDangerSquare(data, next):
 			dangers.append(cord)
 		
 	print dangers
+	
+	if( next in dangers):
+		print "suqare taken"
+		return true;
 
 def getTaunt():
 	taunts = [	'This is a taunt!',
@@ -82,8 +86,6 @@ def move():
 	print(meX, meY)
 	print(closestCord)
 	
-	isDangerSquare(data, closestCord)
-	
 	if(closestCord[0] < meX):
 		nextMove = 'left'
 		print ("- left")
@@ -97,7 +99,7 @@ def move():
 		nextMove = 'up'
 		print ("- up")
 		
-	
+	isDangerSquare(data, closestCord)
 		
 	
 	# TODO: Do things with data	
