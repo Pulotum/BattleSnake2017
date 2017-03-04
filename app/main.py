@@ -137,7 +137,7 @@ def move():
 	# TODO: Do things with data	
 	
 	return {
-		'move': nextMove,
+		'move': movement,
 		'taunt': getTaunt()
 	}
 	
