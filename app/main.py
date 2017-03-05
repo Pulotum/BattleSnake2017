@@ -5,12 +5,8 @@ import math
 
 
 def getTaunt():
-	taunts = [	'This is a test taunt. If you see this please contact your internet provider.',
-				'My data structure is better than your data structure',
-				'My dad works at nintendo',
-				'I AM A BABY',
+	taunts = [	'I AM A BABY',
 				'I love to eat food, for I am a baby',
-				'I Think, Therefore I Am Baby',
 				'BRING ME MY BROWN PANTS',
 				'Did you know that I am indeed a Baby?']
 				
