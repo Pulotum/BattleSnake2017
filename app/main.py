@@ -153,6 +153,7 @@ def isDangerSquare(data, next, check):
 			else:
 				return False
 			'''
+			
 			return False
 		else:
 			return False
