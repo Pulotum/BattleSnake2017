@@ -4,7 +4,8 @@ This is our battlensnake attempt for 2017. It was created by [Me](http://joshlar
 
 The path finding we used for our snake was pretty basic so we decided to name our snake **'Baby Face'**.
 
-#### How Our Snake Do
+How Our Snake Do
+---
 
 So our snake design was pretty basic all things considered. It's goal was to get to the closest food.
 The steps it followed are pretty basic.
@@ -25,7 +26,8 @@ The steps it followed are pretty basic.
 	- If target square is taken, try up, then try right, then try down, then try left. 
 	- If none are possible, go up because we are dead anyways.
 
-### What Can Snake Do Gooder
+What Can Snake Do Gooder
+---
 
 During the competition, we had some ideas for how to improve the snake slightly without changing the path finding we had. 
 
@@ -33,12 +35,14 @@ During the competition, we had some ideas for how to improve the snake slightly 
 
 * One idea was to look ahead by one turn. So basically same thing we did, but also check the target squares for the next move. This would hopefully stop us from cornering our selves into walls.
 
-### Credits
+Credits
+---
 
 * [Josh Larminay](http://joshlarminay.com)
 * [AFKMedic](https://github.com/AFKMedic)
 
-### Tools
+Tools
+---
 
 * Python (The mightiest of snakes!)
 * Heroku
