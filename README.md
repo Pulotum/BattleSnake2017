@@ -19,61 +19,22 @@ The steps it followed are pretty basic.
 
 6) During this, we check the next spot w are aiming for to see if a snake is there.
 
-7) If there is a snake, we default to the first available space in a compass fashion.
-*If target square is taken, try up, then try right, then try down, then try left.
-*If none are possible, go up because we are dead anyways.
+7) If there is a snake, we default to the first available space in a compass fashion. If target square is taken, try up, then try right, then try down, then try left. If none are possible, go up because we are dead anyways.
 
+### What Can Snake Do Gooder
 
-It accomplished this by comparing it's head coordinates and coparing it to all the food objects. This will find the cloests one.
+During the competition, we had some ideas for how to improve the snake slightly without changing the pathfinding we had. 
 
-* a working Python 2.7 development environment ([getting started guide](http://hackercodex.com/guide/python-development-environment-on-mac-osx/))
-* experience [deploying Python apps to Heroku](https://devcenter.heroku.com/articles/getting-started-with-python#introduction)
-* [pip](https://pip.pypa.io/en/latest/installing.html) to install Python dependencies
+* One big problem with out snake was it often defaulted to going up when stuck. This would often result in our snake wrapping into itself or others. We could change it to instead of a compass (north,east,wouth,west) to random movement. This would stop it from cornering itself but would make it a bit more unpredictable and could get it stuck more often because of this.
 
-## Running the Snake Locally
+* One idea was to look ahead by one turn. So basically same thing we did, but also check the target squares for the next move. This would hopefully stop us from cornering our selves into walls.
 
-1) [Fork this repo](https://github.com/sendwithus/battlesnake-python/fork).
+### Credits & Tools
 
-2) Clone repo to your development environment:
-```
-git clone git@github.com:username/battlesnake-python.git
-```
+* [Josh Larminay](http://joshlarminay.com)
+* [AFKMedic](https://github.com/AFKMedic)
 
-3) Install dependencies using [pip](https://pip.pypa.io/en/latest/installing.html):
-```
-pip install -r requirements.txt
-```
+* Python (The mightiest of snakes!)
+* Heroku
+* [BattleSnake](https://www.battlesnake.io/)
 
-4) Run local server:
-```
-python app/main.py
-```
-
-5) Test client in your browser: [http://localhost:8080](http://localhost:8080).
-
-## Deploying to Heroku
-
-1) Create a new Heroku app:
-```
-heroku create [APP_NAME]
-```
-
-2) Deploy code to Heroku servers:
-```
-git push heroku master
-```
-
-3) Open Heroku app in browser:
-```
-heroku open
-```
-or visit [http://APP_NAME.herokuapp.com](http://APP_NAME.herokuapp.com).
-
-4) View server logs with the `heroku logs` command:
-```
-heroku logs --tail
-```
-
-## Questions?
-
-Email [battlesnake@sendwithus.com](mailto:battlesnake@sendwithus.com), or tweet [@send_with_us](http://twitter.com/send_with_us).
