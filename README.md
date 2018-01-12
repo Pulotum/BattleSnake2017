@@ -1,14 +1,30 @@
-# battlesnake-python
+# BattleSnake 2017
 
-A simple [BattleSnake AI](http://battlesnake.io) written in Python. 
+This is our battlensnake attempt for 2017. It was created by Me and [AFKMedic](https://github.com/AFKMedic). 
 
-Visit [battlesnake.io/readme](http://battlesnake.io/readme) for API documentation and instructions for running your AI.
+#### How Our Snake Do
 
-This AI client uses the [bottle web framework](http://bottlepy.org/docs/dev/index.html) to serve requests and the [gunicorn web server](http://gunicorn.org/) for running bottle on Heroku. Dependencies are listed in [requirements.txt](requirements.txt).
+So our snake design was pretty basic all things considered. It's goal was to get to the closest food.
+The steps it followed are pretty basic.
 
-[![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
+1) Get the head's location and compare it to the food locations. Make the closet food object the next target.
 
-#### You will need...
+2) Figuring out if the food is higher or lower than the snake on the board.
+
+3) If it's higher, move up by one. If it's lower, move down by one.
+
+4) Repeat this until we are at the same level as the food.
+
+5) Repeat the same steps except for left and right.
+
+6) During this, we check the next spot w are aiming for to see if a snake is there.
+
+7) If there is a snake, we default to the first available space in a compass fashion.
+*If target square is taken, try up, then try right, then try down, then try left.
+*If none are possible, go up because we are dead anyways.
+
+
+It accomplished this by comparing it's head coordinates and coparing it to all the food objects. This will find the cloests one.
 
 * a working Python 2.7 development environment ([getting started guide](http://hackercodex.com/guide/python-development-environment-on-mac-osx/))
 * experience [deploying Python apps to Heroku](https://devcenter.heroku.com/articles/getting-started-with-python#introduction)
